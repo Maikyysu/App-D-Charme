@@ -42,8 +42,9 @@ class _FinanceScreenState extends State<FinanceScreen> {
               rightTitle: 'Despesas',
               leftValue: 0,
               rightValue: 0,
+              leftIconType: IndicatorType.up,
+              rightIconType: IndicatorType.down,
             ),
-
 
             const SizedBox(height: 12),
 

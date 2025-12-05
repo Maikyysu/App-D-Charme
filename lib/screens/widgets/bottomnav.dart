@@ -57,7 +57,6 @@ class _BottomNavState extends State<BottomNav> {
       label: label,
       tooltip: label,
 
-      // 👇 O segredo: estilizar o texto manualmente
       backgroundColor: Colors.transparent,
     );
   }

@@ -14,7 +14,7 @@ class LinkText extends StatelessWidget {
     required this.onTap,
     required this.color,
     this.fontSize = 14,
-    this.alignment = Alignment.centerRight, // ✅ padrão à direita
+    this.alignment = Alignment.centerRight,
   });
 
   @override

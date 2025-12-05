@@ -4,6 +4,8 @@ import '../models/app_state_provider.dart';
 import '/config.dart';
 import './widgets/linktext.dart';
 import './widgets/appbardefault.dart';
+import 'dart:developer' as developer;
+
 
 class LoginScreen extends ConsumerWidget {
   const LoginScreen({super.key});
@@ -43,6 +45,11 @@ class LoginScreen extends ConsumerWidget {
             const SizedBox(height: 30),
 
             TextField(
+              onChanged: (v) => developer.log(
+                'digitou: $v',
+                name: 'TextFieldLogger',
+              ),
+ 
               decoration: InputDecoration(
                 labelText: AppConfig.userFieldLabel,
                 border: OutlineInputBorder(
@@ -50,6 +57,7 @@ class LoginScreen extends ConsumerWidget {
                 ),
               ),
             ),
+
             const SizedBox(height: 12),
             TextField(
               decoration: InputDecoration(
@@ -66,7 +74,6 @@ class LoginScreen extends ConsumerWidget {
               text: "Esqueceu sua senha?",
               color: AppConfig.secondaryColor,
               onTap: () {
-                // navegação futura
               },
             ),
              const SizedBox(height: 10),
@@ -104,7 +111,6 @@ class LoginScreen extends ConsumerWidget {
               normalColor: AppConfig.secondaryColor,
               highlightedColor: AppConfig.primaryColor,
               onTap: () {
-                // navegação futura
               },
             ),
           ],

@@ -80,8 +80,6 @@ class MonthYearPicker extends StatelessWidget {
   }
 }
 
-/* ===================== BOTTOM PICKER ===================== */
-
 class _BottomPicker extends StatefulWidget {
   final DateTime selectedDate;
   final ValueChanged<DateTime> onConfirm;

@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
-import '/config.dart';
+
+enum IndicatorType {
+  up,
+  down,
+  minus,
+}
 
 class AccountabilityWidget extends StatelessWidget {
   final String leftTitle;
   final String rightTitle;
   final double leftValue;
   final double rightValue;
+  final IndicatorType leftIconType;
+  final IndicatorType rightIconType;
 
   const AccountabilityWidget({
     super.key,
@@ -13,16 +20,40 @@ class AccountabilityWidget extends StatelessWidget {
     required this.rightTitle,
     required this.leftValue,
     required this.rightValue,
+    this.leftIconType = IndicatorType.up,
+    this.rightIconType = IndicatorType.down,
   });
 
   String _formatCurrency(double value) {
     return 'R\$ ${value.toStringAsFixed(2).replaceAll('.', ',')}';
   }
 
+  IconData _getIcon(IndicatorType type) {
+    switch (type) {
+      case IndicatorType.up:
+        return Icons.arrow_upward;
+      case IndicatorType.down:
+        return Icons.arrow_downward;
+      case IndicatorType.minus:
+        return Icons.remove;
+    }
+  }
+
+  Color _getColor(IndicatorType type) {
+    switch (type) {
+      case IndicatorType.up:
+        return Colors.green;
+      case IndicatorType.down:
+        return Colors.red;
+      case IndicatorType.minus:
+        return Colors.orange;
+    }
+  }
+
   Widget _buildCard({
     required String title,
     required double value,
-    required bool isProfit,
+    required IndicatorType iconType,
   }) {
     return Expanded(
       child: Container(
@@ -43,7 +74,6 @@ class AccountabilityWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
 
-            // TÍTULO
             Text(
               title,
               style: const TextStyle(
@@ -55,14 +85,13 @@ class AccountabilityWidget extends StatelessWidget {
 
             const SizedBox(height: 10),
 
-            // VALOR + ÍCONE
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
 
                 Icon(
-                  isProfit ? Icons.arrow_upward : Icons.arrow_downward,
-                  color: isProfit ? Colors.green : Colors.red,
+                  _getIcon(iconType),
+                  color: _getColor(iconType),
                   size: 20,
                 ),
 
@@ -93,15 +122,14 @@ class AccountabilityWidget extends StatelessWidget {
           _buildCard(
             title: leftTitle,
             value: leftValue,
-            isProfit: true,
+            iconType: leftIconType,
           ),
 
           _buildCard(
             title: rightTitle,
             value: rightValue,
-            isProfit: false,
+            iconType: rightIconType,
           ),
-
         ],
       ),
     );
