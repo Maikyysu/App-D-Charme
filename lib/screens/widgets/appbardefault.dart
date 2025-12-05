@@ -30,7 +30,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: AnyIcon(
                 assetPath: AppConfig.iconApp,
                 size: 70,
-                scale: 1.3,
+                scale: 1.5,
               ),
             )
           : leading,
@@ -42,7 +42,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                 child: AnyIcon(
                   assetPath: AppConfig.iconApp,
                   size: 70,
-                  scale: 1.3,
+                  scale: 1.5,
                   mirrored: true,
                 ),
               ),
@@ -57,7 +57,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
             style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
-              fontSize: 22,
+              fontSize: 30,
             ),
           ),
           if (subtitle != null)
@@ -65,7 +65,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
               subtitle!,
               style: const TextStyle(
                 color: Colors.black,
-                fontSize: 12,
+                fontSize: 18,
               ),
             ),
         ],

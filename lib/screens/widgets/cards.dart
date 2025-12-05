@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../config.dart';
+import 'app_card.dart';
 
 class HomeStatsCard extends StatelessWidget {
   final String label;
@@ -15,19 +16,7 @@ class HomeStatsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-            color: Colors.black.withValues(alpha: 0.10),
-          ),
-        ],
-      ),
+    return AppCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -74,19 +63,8 @@ class UpcomingRentalCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AppCard(
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-            color: Colors.black.withValues(alpha: 0.10),
-          ),
-        ],
-      ),
       child: Row(
         children: [
           Container(
@@ -143,6 +121,51 @@ class UpcomingRentalCard extends StatelessWidget {
             Icons.chevron_right,
             color: Colors.black54,
             size: 26,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ProductCard extends StatelessWidget {
+  final String name;
+  final String category;
+  final String color;
+  final String size;
+
+  const ProductCard({
+    super.key,
+    required this.name,
+    required this.category,
+    required this.color,
+    required this.size,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AppCard(
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            name,
+            style: const TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.w700,
+              color: Colors.black,
+            ),
+          ),
+
+          const SizedBox(height: 6),
+
+          Text(
+            '$category • $color • $size',
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.black87,
+            ),
           ),
         ],
       ),
