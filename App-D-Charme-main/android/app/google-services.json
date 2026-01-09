@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "975241725320",
+    "project_id": "dcharme-app",
+    "storage_bucket": "dcharme-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975241725320:android:639e4e3ce4891f4828e63d",
+        "android_client_info": {
+          "package_name": "com.example.dcharm_aplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt4kHy6JS7QA4YrIQh09dgQUwK069GnzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
